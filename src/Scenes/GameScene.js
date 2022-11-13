@@ -240,7 +240,7 @@ export default class GameScene extends Phaser.Scene {
 
     // checking for input
     this.input.keyboard.on('keydown-W', this.jump, this);
-    const jumpButton = this.add.text(game.config.width/2,game.config.height/2, 'JUMP', { fill: 'black', backgroundColor: "yellow", fontSize: "20px"})
+    const jumpButton = this.add.text(game.config.width/2,game.config.height/3, 'JUMP', { fill: 'black', backgroundColor: "yellow", fontSize: "80px"})
     jumpButton.setInteractive().on('pointerdown',this.jump,this);
   }
 
