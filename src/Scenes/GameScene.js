@@ -2,7 +2,11 @@ import Phaser from 'phaser';
 import config from '../Config/config';
 import gameOptions from '../Config/gameConfig';
 
+function isTouchDevice(){
+  return window.ontouchstart !== undefined;
+}
 export default class GameScene extends Phaser.Scene {
+  
   constructor() {
     super('GameScene');
     this.playerJumps = 0;
@@ -238,6 +242,11 @@ export default class GameScene extends Phaser.Scene {
 
     // checking for input
     this.input.keyboard.on('keydown-W', this.jump, this);
+      if(isTouchDevice()) {
+        window.ontouchstart(() => {
+          this.jump;
+        })
+      }
   }
 
   // adding mountains
