@@ -17,7 +17,7 @@ export default class ScaryScene extends Phaser.Scene {
     bg.x = game.config.width/2
     bg.y = game.config.height/2
     bg.setScale(Math.max(window.innerWidth/ bg.width, window.innerHeight / bg.height))
-    let audio = this.sound.add('scaryMusic', {volume: 1,loop: true})
+    let audio = this.sound.add('scaryMusic', {volume: 5,loop: true})
     audio.play()
   }
 }
