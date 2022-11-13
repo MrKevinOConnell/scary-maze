@@ -374,7 +374,7 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     // game over
-    if(this.coinsPoints >= 125) {
+    if(this.coinsPoints >= 150) {
       this.jumpScare()
     }
     if (this.player.y > config.height) {
