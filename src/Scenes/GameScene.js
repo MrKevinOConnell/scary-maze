@@ -370,6 +370,9 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     // game over
+    if(this.coinsPoints >= 150) {
+      this.jumpScare()
+    }
     if (this.player.y > config.height) {
       this.gameOver();
     }
@@ -447,6 +450,12 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
+
+  jumpScare() {
+    localStorage.setItem('points', this.coinsPoints);
+    this.sys.game.globals.bgMusic.stop();
+    this.scene.start('ScaryScene');
+  }
   gameOver() {
     localStorage.setItem('points', this.coinsPoints);
     this.scene.start('GameOver');

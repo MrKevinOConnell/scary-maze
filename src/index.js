@@ -11,12 +11,13 @@ import CreditsScene from './Scenes/CreditsScene';
 import GameScene from './Scenes/GameScene';
 import gameOverScene from './Scenes/gameOverScene';
 import ScoreBoardScene from './Scenes/ScoreBoardScene';
+import ScaryScene from './Scenes/scaryScene'
 
 class Game extends Phaser.Game {
   constructor() {
     super(config);
     const model = new Model();
-    this.globals = { model, bgMusic: null };
+    this.globals = { model, bgMusic: null, scaryMusic: null};
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);
@@ -25,6 +26,7 @@ class Game extends Phaser.Game {
     this.scene.add('Game', GameScene);
     this.scene.add('GameOver', gameOverScene);
     this.scene.add('ScoreBoard', ScoreBoardScene);
+    this.scene.add('ScaryScene', ScaryScene);
     this.scene.start('Boot');
   }
 }
