@@ -1,12 +1,46 @@
 import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
+function openTwitter()
+{
 
+    var url = 'https://github.com/udberg/Maze-Runner' 
+
+    var s = window.open(url, '_blank');
+
+    if (s && s.focus)
+    {
+        s.focus();
+    }
+    else if (!s)
+    {
+        window.location.href = url;
+    }
+}
+
+function openGithub()
+{
+
+    var url = 'https://twitter.com/kw0ETH' 
+
+    var s = window.open(url, '_blank');
+
+    if (s && s.focus)
+    {
+        s.focus();
+    }
+    else if (!s)
+    {
+        window.location.href = url;
+    }
+}
 export default class TitleScene extends Phaser.Scene {
   constructor() {
     super('Title');
   }
 
+ 
+  
   create() {
     // Game
     this.gameButton = new Button(
@@ -31,15 +65,22 @@ export default class TitleScene extends Phaser.Scene {
     );
 
     // Credits
-    this.creditsButton = new Button(
-      this,
-      config.width / 2,
-      config.height / 2 + 100,
-      'blueButton1',
-      'blueButton2',
-      'Credits',
-      'Credits',
-    );
+    this.twitter = this.add.text((game.config.width -175) / 2,
+    game.config.height / 2 + 100,'Follow me on Twitter', {
+      fontSize: 20,
+      fontFamily: 'Arial',
+      color: "#add8e6"
+    }).setInteractive()
+
+    // Credits
+    this.twitter = this.add.text((config.width - 85)/ 2,
+    config.height / 2 + 200,'Based off:', {
+      fontSize: 20,
+      fontFamily: 'Arial',
+      color: "#add8e6"
+    }).setInteractive()
+
+   this.twitter.on('pointerup', openTwitter, this);
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
@@ -66,4 +107,5 @@ export default class TitleScene extends Phaser.Scene {
   centerButtonText(gameText, gameButton) {
     this.Display.Align.In.Center(gameText, gameButton);
   }
+  
 }
