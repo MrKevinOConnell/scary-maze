@@ -80,7 +80,10 @@ export default class TitleScene extends Phaser.Scene {
       color: "#add8e6"
     }).setInteractive()
 
+  this.twitter.on('pointerup', openTwitter, this);
+
    this.github.on('pointerup', openGithub, this);
+   
 
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
